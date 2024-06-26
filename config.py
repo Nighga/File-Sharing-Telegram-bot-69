@@ -63,7 +63,7 @@ USE_SHORTLINK = True if os.environ.get('USE_SHORTLINK', "FALSE") == "TRUE" else 
 SHORTLINK_API_URL = os.environ.get("SHORTLINK_API_URL", "api.shareus.io")
 # SHORTLINK_API_KEY = os.environ.get("SHORTLINK_API_KEY", "")
 #use this key if not working ☠️ (jokin!!)
-SHORTLINK_API_KEY = os.environ.get("SHORTLINK_API_KEY", "s5xbyvzACdRYEoUwabkEEEwQyw32)
+SHORTLINK_API_KEY = os.environ.get("SHORTLINK_API_KEY", "s5xbyvzACdRYEoUwabkEEEwQyw32")
 #add your custom time in secs for shortlink expiration.
 # 24hr = 86400
 # 12hr = 43200
@@ -77,7 +77,7 @@ USE_PAYMENT = True if (os.environ.get("USE_PAYMENT", "FALSE") == "TRUE") & (USE_
 #UPI ID
 UPI_ID = os.environ.get("UPI_ID", "deal@psb")
 #UPI QR CODE IMAGE
-UPI_IMAGE_URL = os.environ.get("UPI_IMAGE_URL", "")
+UPI_IMAGE_URL = os.environ.get("UPI_IMAGE_URL", "https://graph.org/file/a95389977b7ca92016eb4.jpg")
 #SCREENSHOT URL of ADMIN for verification of payments
 SCREENSHOT_URL = os.environ.get("SCREENSHOT_URL", "https://t.me/lnkaChipsbot")
 #Time and its price
@@ -95,7 +95,7 @@ PRICE5 = os.environ.get("PRICE5", "999")
 
 
 #force message for joining the channel
-FORCE_MSG = os.environ.get("FORCE_MSG", "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b> 🥺")
+FORCE_MSG = os.environ.get("FORCE_MSG", "Hello {mention}\n\n<b>You need to join in my Channel to use me\n\nKindly Please join Channel</b>")
 #custom caption 
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 #protected content so that no files can be sent from the bot to anyone. recommended False
