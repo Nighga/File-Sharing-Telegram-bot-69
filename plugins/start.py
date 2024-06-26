@@ -75,11 +75,11 @@ async def start_command(client: Client, message: Message):
                     ids = [int(int(argument[1]) / abs(client.db_channel.id))]
                 except:
                     return
-            temp_msg = await message.reply("Please wait... 🫷")
+            temp_msg = await message.reply("Please wait...")
             try:
                 messages = await get_messages(client, ids)
             except:
-                await message.reply_text("Something went wrong..! 🥲")
+                await message.reply_text("Something went wrong..!")
                 return
             await temp_msg.delete()
             snt_msgs = []
@@ -103,14 +103,14 @@ async def start_command(client: Client, message: Message):
                 except: 
                     pass    
                 
-            notification_msg = await message.reply(f"<b>❗️ <u>Notice</u> ❗️</b>\n\n<b>This file will be  deleted in  {SECONDS // 60} minutes. Please save or forward it to your saved messages before it gets deleted.</b>")
+            notification_msg = await message.reply(f"<b>❗️ <u>Notice</u> ❗️</b>\n\n<b>This video will be  deleted in  {SECONDS // 60} minutes. \nfor bot safety & Contant issues .</b>")
             await asyncio.sleep(SECONDS)    
             for snt_msg in snt_msgs:    
                 try:    
                     await snt_msg.delete()  
                 except: 
                     pass    
-            await notification_msg.edit("<b>Your file has been successfully deleted! 😼</b>")  
+            await notification_msg.edit("<b>Your file has been successfully deleted!</b>")  
             return  
     if (1 == 1):
         for i in range(1):
@@ -122,13 +122,17 @@ async def start_command(client: Client, message: Message):
                     except:
                         continue
             reply_markup = InlineKeyboardMarkup(
+            [          
                 [
-                    [
-                        InlineKeyboardButton("😊 About Me", callback_data="about"),
-                        InlineKeyboardButton("🔒 Close", callback_data="close")
-                    ]
+                    InlineKeyboardButton( "Main Channel", url = "t.me/InkaLinks" ),
+                    InlineKeyboardButton("Source Code", url = "https://t.me/+nrNgQ7sT3XQxZTc1")
+                ], [ InlineKeyboardButton("Update Channel", url = "t.me/Publicfille") ],
+                [
+                    InlineKeyboardButton("🤖 About Me", callback_data = "about"),
+                    InlineKeyboardButton("🔒 Close", callback_data = "close")
                 ]
-            )
+            ]
+        )
             await message.reply_text(
                 text=START_MSG.format(
                     first=message.from_user.first_name,
@@ -153,14 +157,14 @@ async def start_command(client: Client, message: Message):
                 link = await get_shortlink(SHORTLINK_API_URL, SHORTLINK_API_KEY,f'https://telegram.dog/{client.username}?start=verify_{token}')
                 if USE_PAYMENT:
                     btn = [
-                    [InlineKeyboardButton("Click Here 👆", url=link),
-                    InlineKeyboardButton('How to open this link 👆', url=TUT_VID)],
-                    [InlineKeyboardButton("Buy Premium plan", callback_data="buy_prem")]
+                    [InlineKeyboardButton("Click Here ", url=link)]
+                    [InlineKeyboardButton('How to open this link ', url=TUT_VID)],
+                    [InlineKeyboardButton("Remove All Ads In One Click", callback_data="buy_prem")]
                     ]
                 else:
                     btn = [
-                    [InlineKeyboardButton("Click Here 👆", url=link)],
-                    [InlineKeyboardButton('How to open this link 👆', url=TUT_VID)]
+                    [InlineKeyboardButton("Click Here ", url=link)],
+                    [InlineKeyboardButton('How to open this link ', url=TUT_VID)]
                     ]
                 await message.reply(f"Your Ads token is expired, refresh your token and try again. \n\nToken Timeout: {get_exp_time(VERIFY_EXPIRE)}\n\nWhat is the token?\n\nThis is an ads token. If you pass 1 ad, you can use the bot for 24 Hour after passing the ad", reply_markup=InlineKeyboardMarkup(btn), protect_content=False, quote=True)
                 return
@@ -181,10 +185,10 @@ async def not_joined(client: Client, message: Message):
     buttons = [
         [
             InlineKeyboardButton(
-                "Join Channel 👆",
+                "Join Channel",
                 url=client.invitelink),
             InlineKeyboardButton(
-                "Join Channel 👆",
+                "Join Channel",
                 url=client.invitelink2),
         ]
     ]
@@ -192,7 +196,7 @@ async def not_joined(client: Client, message: Message):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text='Try Again 🥺',
+                    text='♻️ Try Again ♻️',
                     url=f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
@@ -302,7 +306,7 @@ async def command_add_admin(client: Bot, message: Message):
             try:
                 reply_markup = InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Join Channel 👆", url=CHANNEL_LINK)]
+                        [InlineKeyboardButton("Join Channel", url= "t.me/InkaLinks")]
                     ]
                 )
                 await client.send_message(
